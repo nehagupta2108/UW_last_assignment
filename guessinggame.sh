@@ -1,21 +1,31 @@
-echo "please enter a number for: how many files are in the current directory"
-read reponse1
-n=$( ls -1 | wc -l )
-# echo "$n"
-function guessingame {
-	if [[ $response1 -eq $n ]]
+function gg {
+	n=$( ls -Aq | wc -l )
+	echo "please enter a number (guess) for no. of files in current directory"
+	read r
+	echo "user entered $r"
+	if [[ $r -gt $n ]]
 	then
-		echo "congragulations, your answer is correct"
-	elif [[ $reponse1 -ne $n ]]
-	then
-		while [[ $reponse1 -gt $n ]]
+		while [[ $r -gt $n ]]
 		do
 			echo "The number entered is higher, please try a lower number"
+			read r
+			if [[ $r -eq $n ]]
+			then
+				echo "Congratulations, you finally guessed it right"
+			fi
+		done
+	elif [[ $r -lt $n ]]
+	then
+		while [[ $r -lt $n ]]
+		do
+			echo "The number entered is lower, please try a higher number"
+			read r	
+			if [[ $r -eq $n ]]
+			then
+				echo "Congratulations, you finally guessed it right"
+			fi
 		done
 	else
-		while [[ $response -lt $n ]]
-		do
-			echo "The number enteres is lower, please try a higher number"
-		done
+		echo "Congratulations you guessed it right in first time"
 	fi
 }
