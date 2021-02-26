@@ -1,4 +1,6 @@
 README.md: guessinggame.sh
-	echo "Project Name: UW_last_assignment"
-	echo "The guessinggame.sh file contains these many number of lines:" > README.txt
-	wc -l guessinggame.sh >> README.txt
+#	x=$(cat guessinggame.sh | wc -l)
+	echo "Project Name: UW_last_assignment" > README.md
+#	echo $x >> README.md
+	wc -l guessinggame.sh >> README.md
+	date -r guessinggame.sh >>README.md
