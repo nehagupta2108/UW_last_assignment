@@ -2,7 +2,6 @@ function gg {
 	n=$( ls -Aq | wc -l )
 	echo "please enter a number (guess) for no. of files in current directory"
 	read r
-	echo "$r"
 	if [[ $r -gt $n ]]
 	then
 		while [[ $r -gt $n ]]
